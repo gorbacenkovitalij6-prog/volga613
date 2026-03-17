@@ -1,0 +1,13 @@
+
+> nextjs-shadcn@0.1.0 start
+> next start -p 3001
+
+   ▲ Next.js 15.3.6
+   - Local:        http://localhost:3001
+   - Network:      http://169.254.123.221:3001
+
+ ✓ Starting...
+ ✓ Ready in 556ms
+Error: Page changed from static to dynamic at runtime /catalog, reason: `await searchParams`, `searchParams.then`, or similar
+see more here https://nextjs.org/docs/messages/app-static-to-dynamic-error
+    at stringify (<anonymous>)

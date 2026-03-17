@@ -1,0 +1,6 @@
+@echo off
+echo Установка зависимостей (если их еще нет)...
+npm install
+echo Запуск локального сервера...
+npm run dev
+pause

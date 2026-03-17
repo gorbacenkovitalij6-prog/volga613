@@ -1,0 +1,7 @@
+# Redirect .com domain to .ru
+https://volga-auto-premier.com/* https://volga-auto-premier.ru/:splat 301!
+http://volga-auto-premier.com/* https://volga-auto-premier.ru/:splat 301!
+
+# Redirect www to non-www for .ru (already works via Netlify, but explicit is better)
+https://www.volga-auto-premier.ru/* https://volga-auto-premier.ru/:splat 301!
+http://www.volga-auto-premier.ru/* https://volga-auto-premier.ru/:splat 301!

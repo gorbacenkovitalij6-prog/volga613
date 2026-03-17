@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+        }
+    </script>
+</head>
+<body class="p-8">
+    <button onclick="toggleTheme()" class="mb-4 px-4 py-2 bg-blue-500 text-white rounded">
+        Переключить тему
+    </button>
+    
+    <div class="border p-4">
+        <!-- Светлый логотип -->
+        <div class="dark:hidden bg-green-200 p-4 mb-2">
+            Светлый логотип (виден на светлой теме)
+        </div>
+        
+        <!-- Темный логотип -->
+        <div class="hidden dark:block bg-blue-200 p-4">
+            Темный логотип (виден на темной теме)
+        </div>
+    </div>
+    
+    <script>
+        function toggleTheme() {
+            const html = document.documentElement;
+            if (html.classList.contains('dark')) {
+                html.classList.remove('dark');
+            } else {
+                html.classList.add('dark');
+            }
+        }
+    </script>
+</body>
+</html>

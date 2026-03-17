@@ -1,0 +1,5 @@
+node_modules/
+.next/
+.turbo/
+tsconfig.tsbuildinfo
+bun.lock

@@ -1,0 +1,304 @@
+
+> nextjs-shadcn@0.1.0 dev
+> next dev -H 0.0.0.0 --turbopack
+
+   ▲ Next.js 15.3.6 (Turbopack)
+   - Local:        http://localhost:3000
+   - Network:      http://0.0.0.0:3000
+
+ ✓ Starting...
+ ✓ Compiled middleware in 127ms
+ ✓ Ready in 1335ms
+ ○ Compiling / ...
+ ✓ Compiled / in 6.5s
+ GET / 200 in 7563ms
+ GET / 200 in 5120ms
+ GET / 200 in 2387ms
+ ⨯ [Error: ENOENT: no such file or directory, open 'C:\Users\rabot\OneDrive\Desktop\Волга авто\volga-avto-main\.next\server\app\page\app-build-manifest.json'] {
+  errno: -4058,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: 'C:\\Users\\rabot\\OneDrive\\Desktop\\Волга авто\\volga-avto-main\\.next\\server\\app\\page\\app-build-manifest.json'
+}
+ ○ Compiling /_error ...
+ ✓ Compiled /_error in 708ms
+ ⨯ [Error: ENOENT: no such file or directory, open 'C:\Users\rabot\OneDrive\Desktop\Волга авто\volga-avto-main\.next\static\development\_buildManifest.js.tmp.slv4g7lu52r'] {
+  errno: -4058,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: 'C:\\Users\\rabot\\OneDrive\\Desktop\\Волга авто\\volga-avto-main\\.next\\static\\development\\_buildManifest.js.tmp.slv4g7lu52r'
+}
+[Error: ENOENT: no such file or directory, open 'C:\Users\rabot\OneDrive\Desktop\Волга авто\volga-avto-main\.next\server\app\page\app-build-manifest.json'] {
+  errno: -4058,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: 'C:\\Users\\rabot\\OneDrive\\Desktop\\Волга авто\\volga-avto-main\\.next\\server\\app\\page\\app-build-manifest.json'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open 'C:\Users\rabot\OneDrive\Desktop\Волга авто\volga-avto-main\.next\static\development\_buildManifest.js.tmp.7bt00ivvkp4'] {
+  errno: -4058,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: 'C:\\Users\\rabot\\OneDrive\\Desktop\\Волга авто\\volga-avto-main\\.next\\static\\development\\_buildManifest.js.tmp.7bt00ivvkp4'
+}
+[Error: ENOENT: no such file or directory, open 'C:\Users\rabot\OneDrive\Desktop\Волга авто\volga-avto-main\.next\static\development\_buildManifest.js.tmp.7dbk5woy7as'] {
+  errno: -4058,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: 'C:\\Users\\rabot\\OneDrive\\Desktop\\Волга авто\\volga-avto-main\\.next\\static\\development\\_buildManifest.js.tmp.7dbk5woy7as'
+}
+
+-----
+[1m[31mFATAL[39m[0m: An unexpected Turbopack error occurred. A panic log has been written to C:\Users\rabot\AppData\Local\Temp\next-panic-e78136f3ae4921e159bdd9cc8edb3bdf.log.
+
+To help make Turbopack better, report this error by clicking here: https://github.com/vercel/next.js/discussions/new?category=turbopack-error-report&title=Turbopack%20Error%3A%20%5Bproject%5D%2Fsrc%2Fapp%2Fglobals.css%20%5Bapp-client%5D%20%28css%29&body=Turbopack%20version%3A%20%60e678913a%60%0A%0AError%20message%3A%0A%60%60%60%0ATurbopack%20Error%3A%20%5Bproject%5D%2Fsrc%2Fapp%2Fglobals.css%20%5Bapp-client%5D%20%28css%29%0A%60%60%60&labels=Turbopack,Turbopack%20Panic%20Backtrace
+-----
+
+ ✓ Compiled in 16.7s
+ ⨯ [Error: ENOENT: no such file or directory, open 'C:\Users\rabot\OneDrive\Desktop\Волга авто\volga-avto-main\.next\static\development\_buildManifest.js.tmp.im7vmgkjtn'] {
+  errno: -4058,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: 'C:\\Users\\rabot\\OneDrive\\Desktop\\Волга авто\\volga-avto-main\\.next\\static\\development\\_buildManifest.js.tmp.im7vmgkjtn'
+}
+[Error [TurbopackInternalError]: Failed to write app endpoint /page
+
+Caused by:
+- [project]/src/app/globals.css [app-client] (css)
+- creating new process
+- node process exited before we could connect to it with exit code: 1
+
+Debug info:
+- Execution of TaskId { id: 2147483727 } transient failed
+- Execution of get_written_endpoint_with_issues_operation failed
+- Execution of endpoint_write_to_disk failed
+- Execution of <AppEndpoint as Endpoint>::output failed
+- Failed to write app endpoint /page
+- Execution of AppEndpoint::output failed
+- Execution of AppProject::app_module_graphs failed
+- Execution of SingleModuleGraph::new_with_entries_visited_intern failed
+- [project]/src/app/globals.css [app-client] (css)
+- Execution of primary_chunkable_referenced_modules failed
+- Execution of <CssModuleAsset as Module>::references failed
+- Execution of parse_css failed
+- Execution of <PostCssTransformedAsset as Asset>::content failed
+- Execution of PostCssTransformedAsset::process failed
+- creating new process
+- node process exited before we could connect to it with exit code: 1
+  Process output:
+  
+  Process error output:
+  node:internal/modules/cjs/loader:1451
+    throw err;
+    ^
+  
+  Error: Cannot find module 'C:\Users\rabot\OneDrive\Desktop\Волга авто\volga-avto-main\.next\transform.js'
+      at Module._resolveFilename (node:internal/modules/cjs/loader:1448:15)
+      at defaultResolveImpl (node:internal/modules/cjs/loader:1059:19)
+      at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1064:22)
+      at Module._load (node:internal/modules/cjs/loader:1234:25)
+      at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+      at wrapModuleLoad (node:internal/modules/cjs/loader:245:24)
+      at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)
+      at node:internal/main/run_main_module:33:47 {
+    code: 'MODULE_NOT_FOUND',
+  }
+  
+  Node.js v24.13.1]
+ ⨯ [Error: ENOENT: no such file or directory, open 'C:\Users\rabot\OneDrive\Desktop\Волга авто\volga-avto-main\.next\static\development\_buildManifest.js.tmp.et63064jkv'] {
+  errno: -4058,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: 'C:\\Users\\rabot\\OneDrive\\Desktop\\Волга авто\\volga-avto-main\\.next\\static\\development\\_buildManifest.js.tmp.et63064jkv'
+}
+[Error: ENOENT: no such file or directory, open 'C:\Users\rabot\OneDrive\Desktop\Волга авто\volga-avto-main\.next\static\development\_buildManifest.js.tmp.5ei53r20vnc'] {
+  errno: -4058,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: 'C:\\Users\\rabot\\OneDrive\\Desktop\\Волга авто\\volga-avto-main\\.next\\static\\development\\_buildManifest.js.tmp.5ei53r20vnc'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open 'C:\Users\rabot\OneDrive\Desktop\Волга авто\volga-avto-main\.next\static\development\_buildManifest.js.tmp.ukqtldqmvml'] {
+  errno: -4058,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: 'C:\\Users\\rabot\\OneDrive\\Desktop\\Волга авто\\volga-avto-main\\.next\\static\\development\\_buildManifest.js.tmp.ukqtldqmvml'
+}
+[Error [TurbopackInternalError]: Failed to write app endpoint /page
+
+Caused by:
+- [project]/src/app/globals.css [app-client] (css)
+- creating new process
+- node process exited before we could connect to it with exit code: 1
+
+Debug info:
+- Execution of TaskId { id: 2147483754 } transient failed
+- Execution of get_written_endpoint_with_issues_operation failed
+- Execution of endpoint_write_to_disk failed
+- Execution of <AppEndpoint as Endpoint>::output failed
+- Failed to write app endpoint /page
+- Execution of AppEndpoint::output failed
+- Execution of AppProject::app_module_graphs failed
+- Execution of SingleModuleGraph::new_with_entries_visited_intern failed
+- [project]/src/app/globals.css [app-client] (css)
+- Execution of primary_chunkable_referenced_modules failed
+- Execution of <CssModuleAsset as Module>::references failed
+- Execution of parse_css failed
+- Execution of <PostCssTransformedAsset as Asset>::content failed
+- Execution of PostCssTransformedAsset::process failed
+- creating new process
+- node process exited before we could connect to it with exit code: 1
+  Process output:
+  
+  Process error output:
+  node:internal/modules/cjs/loader:1451
+    throw err;
+    ^
+  
+  Error: Cannot find module 'C:\Users\rabot\OneDrive\Desktop\Волга авто\volga-avto-main\.next\transform.js'
+      at Module._resolveFilename (node:internal/modules/cjs/loader:1448:15)
+      at defaultResolveImpl (node:internal/modules/cjs/loader:1059:19)
+      at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1064:22)
+      at Module._load (node:internal/modules/cjs/loader:1234:25)
+      at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+      at wrapModuleLoad (node:internal/modules/cjs/loader:245:24)
+      at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)
+      at node:internal/main/run_main_module:33:47 {
+    code: 'MODULE_NOT_FOUND',
+  }
+  
+  Node.js v24.13.1]
+ ⨯ [Error: ENOENT: no such file or directory, open 'C:\Users\rabot\OneDrive\Desktop\Волга авто\volga-avto-main\.next\static\development\_buildManifest.js.tmp.nach0rey4lg'] {
+  errno: -4058,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: 'C:\\Users\\rabot\\OneDrive\\Desktop\\Волга авто\\volga-avto-main\\.next\\static\\development\\_buildManifest.js.tmp.nach0rey4lg'
+}
+[Error: ENOENT: no such file or directory, open 'C:\Users\rabot\OneDrive\Desktop\Волга авто\volga-avto-main\.next\static\development\_buildManifest.js.tmp.a5ym8syo56f'] {
+  errno: -4058,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: 'C:\\Users\\rabot\\OneDrive\\Desktop\\Волга авто\\volga-avto-main\\.next\\static\\development\\_buildManifest.js.tmp.a5ym8syo56f'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open 'C:\Users\rabot\OneDrive\Desktop\Волга авто\volga-avto-main\.next\static\development\_buildManifest.js.tmp.0z38zr1nzul'] {
+  errno: -4058,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: 'C:\\Users\\rabot\\OneDrive\\Desktop\\Волга авто\\volga-avto-main\\.next\\static\\development\\_buildManifest.js.tmp.0z38zr1nzul'
+}
+[Error [TurbopackInternalError]: Failed to write app endpoint /page
+
+Caused by:
+- [project]/src/app/globals.css [app-client] (css)
+- creating new process
+- node process exited before we could connect to it with exit code: 1
+
+Debug info:
+- Execution of TaskId { id: 2147483781 } transient failed
+- Execution of get_written_endpoint_with_issues_operation failed
+- Execution of endpoint_write_to_disk failed
+- Execution of <AppEndpoint as Endpoint>::output failed
+- Failed to write app endpoint /page
+- Execution of AppEndpoint::output failed
+- Execution of AppProject::app_module_graphs failed
+- Execution of SingleModuleGraph::new_with_entries_visited_intern failed
+- [project]/src/app/globals.css [app-client] (css)
+- Execution of primary_chunkable_referenced_modules failed
+- Execution of <CssModuleAsset as Module>::references failed
+- Execution of parse_css failed
+- Execution of <PostCssTransformedAsset as Asset>::content failed
+- Execution of PostCssTransformedAsset::process failed
+- creating new process
+- node process exited before we could connect to it with exit code: 1
+  Process output:
+  
+  Process error output:
+  node:internal/modules/cjs/loader:1451
+    throw err;
+    ^
+  
+  Error: Cannot find module 'C:\Users\rabot\OneDrive\Desktop\Волга авто\volga-avto-main\.next\transform.js'
+      at Module._resolveFilename (node:internal/modules/cjs/loader:1448:15)
+      at defaultResolveImpl (node:internal/modules/cjs/loader:1059:19)
+      at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1064:22)
+      at Module._load (node:internal/modules/cjs/loader:1234:25)
+      at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+      at wrapModuleLoad (node:internal/modules/cjs/loader:245:24)
+      at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)
+      at node:internal/main/run_main_module:33:47 {
+    code: 'MODULE_NOT_FOUND',
+  }
+  
+  Node.js v24.13.1]
+ ⨯ [Error: ENOENT: no such file or directory, open 'C:\Users\rabot\OneDrive\Desktop\Волга авто\volga-avto-main\.next\static\development\_buildManifest.js.tmp.anikcwl3vas'] {
+  errno: -4058,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: 'C:\\Users\\rabot\\OneDrive\\Desktop\\Волга авто\\volga-avto-main\\.next\\static\\development\\_buildManifest.js.tmp.anikcwl3vas'
+}
+[Error: ENOENT: no such file or directory, open 'C:\Users\rabot\OneDrive\Desktop\Волга авто\volga-avto-main\.next\static\development\_buildManifest.js.tmp.hsmb9mydtd'] {
+  errno: -4058,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: 'C:\\Users\\rabot\\OneDrive\\Desktop\\Волга авто\\volga-avto-main\\.next\\static\\development\\_buildManifest.js.tmp.hsmb9mydtd'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open 'C:\Users\rabot\OneDrive\Desktop\Волга авто\volga-avto-main\.next\static\development\_buildManifest.js.tmp.jgfm923i7ss'] {
+  errno: -4058,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: 'C:\\Users\\rabot\\OneDrive\\Desktop\\Волга авто\\volga-avto-main\\.next\\static\\development\\_buildManifest.js.tmp.jgfm923i7ss'
+}
+[Error [TurbopackInternalError]: Failed to write app endpoint /page
+
+Caused by:
+- [project]/src/app/globals.css [app-client] (css)
+- creating new process
+- node process exited before we could connect to it with exit code: 1
+
+Debug info:
+- Execution of TaskId { id: 2147483808 } transient failed
+- Execution of get_written_endpoint_with_issues_operation failed
+- Execution of endpoint_write_to_disk failed
+- Execution of <AppEndpoint as Endpoint>::output failed
+- Failed to write app endpoint /page
+- Execution of AppEndpoint::output failed
+- Execution of AppProject::app_module_graphs failed
+- Execution of SingleModuleGraph::new_with_entries_visited_intern failed
+- [project]/src/app/globals.css [app-client] (css)
+- Execution of primary_chunkable_referenced_modules failed
+- Execution of <CssModuleAsset as Module>::references failed
+- Execution of parse_css failed
+- Execution of <PostCssTransformedAsset as Asset>::content failed
+- Execution of PostCssTransformedAsset::process failed
+- creating new process
+- node process exited before we could connect to it with exit code: 1
+  Process output:
+  
+  Process error output:
+  node:internal/modules/cjs/loader:1451
+    throw err;
+    ^
+  
+  Error: Cannot find module 'C:\Users\rabot\OneDrive\Desktop\Волга авто\volga-avto-main\.next\transform.js'
+      at Module._resolveFilename (node:internal/modules/cjs/loader:1448:15)
+      at defaultResolveImpl (node:internal/modules/cjs/loader:1059:19)
+      at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1064:22)
+      at Module._load (node:internal/modules/cjs/loader:1234:25)
+      at TracingChannel.traceSync (node:diagnostics_channel:328:14)
+      at wrapModuleLoad (node:internal/modules/cjs/loader:245:24)
+      at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)
+      at node:internal/main/run_main_module:33:47 {
+    code: 'MODULE_NOT_FOUND',
+  }
+  
+  Node.js v24.13.1]
+ ⨯ [Error: ENOENT: no such file or directory, open 'C:\Users\rabot\OneDrive\Desktop\Волга авто\volga-avto-main\.next\static\development\_buildManifest.js.tmp.qnuot1c7cf'] {
+  errno: -4058,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: 'C:\\Users\\rabot\\OneDrive\\Desktop\\Волга авто\\volga-avto-main\\.next\\static\\development\\_buildManifest.js.tmp.qnuot1c7cf'
+}
+[Error: ENOENT: no such file or directory, open 'C:\Users\rabot\OneDrive\Desktop\Волга авто\volga-avto-main\.next\static\development\_buildManifest.js.tmp.ktbrfsngcng'] {
+  errno: -4058,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: 'C:\\Users\\rabot\\OneDrive\\Desktop\\Волга авто\\volga-avto-main\\.next\\static\\development\\_buildManifest.js.tmp.ktbrfsngcng'
+}

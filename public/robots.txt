@@ -1,0 +1,11 @@
+# robots.txt for ВОЛГА-АВТО
+User-agent: *
+Allow: /
+Disallow: /api/
+
+# Sitemap
+Sitemap: https://volga-auto-premier.ru/sitemap.xml
+Sitemap: https://www.volga-auto-premier.ru/sitemap.xml
+
+# Crawl-delay
+Crawl-delay: 1
