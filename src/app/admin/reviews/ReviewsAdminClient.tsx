@@ -6,7 +6,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Check, X, Trash2, Edit, Plus, Loader2 } from 'lucide-react';
-import { toggleReviewStatus, deleteReview, createReview, updateReview } from './actions';
+import { toggleReviewStatus, deleteReview, createReview, updateReview, uploadReviewPhoto } from './actions';
 import {
   Dialog,
   DialogContent,
@@ -22,6 +22,7 @@ export default function ReviewsAdminClient({ initialReviews }: { initialReviews:
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [editingReview, setEditingReview] = useState<any | null>(null);
   const [loading, setLoading] = useState(false);
+  const [file, setFile] = useState<File | null>(null);
 
   // Form State
   const [name, setName] = useState('');
@@ -37,6 +38,7 @@ export default function ReviewsAdminClient({ initialReviews }: { initialReviews:
     setRating('5');
     setText('');
     setImageUrl('');
+    setFile(null);
     setIsModalOpen(true);
   };
 
@@ -47,6 +49,7 @@ export default function ReviewsAdminClient({ initialReviews }: { initialReviews:
     setRating(String(review.rating));
     setText(review.text);
     setImageUrl(review.imageUrl || '');
+    setFile(null);
     setIsModalOpen(true);
   };
 
@@ -54,12 +57,20 @@ export default function ReviewsAdminClient({ initialReviews }: { initialReviews:
     e.preventDefault();
     setLoading(true);
     try {
+      let finalImageUrl = imageUrl;
+      
+      if (file) {
+        const formData = new FormData();
+        formData.append('file', file);
+        finalImageUrl = await uploadReviewPhoto(formData);
+      }
+
       const data = {
         name,
         car,
         rating: Number(rating),
         text,
-        imageUrl,
+        imageUrl: finalImageUrl,
       };
 
       if (editingReview) {
@@ -221,9 +232,26 @@ export default function ReviewsAdminClient({ initialReviews }: { initialReviews:
                 <Label htmlFor="rating">Рейтинг (от 1 до 5)</Label>
                 <Input id="rating" type="number" min="1" max="5" value={rating} onChange={(e) => setRating(e.target.value)} required />
               </div>
-              <div className="space-y-2">
-                <Label htmlFor="imageUrl">Ссылка на фото (опционально)</Label>
-                <Input id="imageUrl" placeholder="https://..." value={imageUrl} onChange={(e) => setImageUrl(e.target.value)} />
+              <div className="space-y-4 border p-4 rounded-lg bg-muted/20">
+                <div className="space-y-2">
+                  <Label htmlFor="imageFile">Загрузить фото со своего компьютера</Label>
+                  <Input 
+                    id="imageFile" 
+                    type="file" 
+                    accept="image/*" 
+                    onChange={(e) => setFile(e.target.files?.[0] || null)} 
+                  />
+                  {file && <p className="text-xs text-green-600">Файл выбран: {file.name}</p>}
+                </div>
+                <div className="relative flex items-center py-2">
+                  <div className="flex-grow border-t border-border"></div>
+                  <span className="flex-shrink-0 mx-4 text-muted-foreground text-xs uppercase">ИЛИ</span>
+                  <div className="flex-grow border-t border-border"></div>
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="imageUrl">Указать прямую ссылку на фото</Label>
+                  <Input id="imageUrl" placeholder="https://..." value={imageUrl} onChange={(e) => setImageUrl(e.target.value)} disabled={!!file} />
+                </div>
               </div>
               <div className="space-y-2">
                 <Label htmlFor="text">Текст отзыва</Label>
