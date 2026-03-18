@@ -4,6 +4,7 @@ import { Phone, Mail, MessageCircle, Send } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { CONTACTS } from '@/config/contacts';
 import FadeInSection from '@/components/FadeInSection';
+import Link from 'next/link';
 
 export default function ContactsBlock() {
   return (
@@ -101,6 +102,24 @@ export default function ContactsBlock() {
                   <ChevronRight className="w-5 h-5 text-muted-foreground group-hover:text-blue-500 transition-colors mr-2" />
                 </div>
               </a>
+
+              {/* MAX Messenger */}
+              <a href={CONTACTS.max} target="_blank" rel="noopener noreferrer" className="block group">
+                <div className="bg-[#131824] border border-white/10 rounded-xl p-4 flex items-center justify-between hover:border-purple-500/50 hover:bg-[#1a2130] transition-all">
+                  <div className="flex items-center gap-4">
+                    <div className="w-12 h-12 rounded-full bg-purple-500/10 flex items-center justify-center shrink-0 group-hover:bg-purple-500/20 transition-colors">
+                      <MessageCircle className="w-5 h-5 text-purple-500" />
+                    </div>
+                    <div className="text-left">
+                      <p className="text-xs text-muted-foreground font-medium mb-0.5">Написать в</p>
+                      <p className="text-sm md:text-base font-bold text-white group-hover:text-purple-500 transition-colors">
+                        MAX
+                      </p>
+                    </div>
+                  </div>
+                  <ChevronRight className="w-5 h-5 text-muted-foreground group-hover:text-purple-500 transition-colors mr-2" />
+                </div>
+              </a>
               
             </div>
           </FadeInSection>
@@ -111,8 +130,10 @@ export default function ContactsBlock() {
         <FadeInSection animation="fade-up" duration={600}>
           <div className="text-center pt-8 border-t border-white/10">
             <p className="text-sm text-muted-foreground mb-4">Или оставьте заявку, и мы перезвоним вам</p>
-            <Button variant="outline" size="lg" className="px-8 py-6 rounded-xl font-bold border-white/20 text-white hover:bg-white/10 hover:text-white bg-transparent">
-              Оставить заявку
+            <Button variant="outline" size="lg" asChild className="px-8 py-6 rounded-xl font-bold border-white/20 text-white hover:bg-white/10 hover:text-white bg-transparent">
+              <Link href="/contacts#form">
+                Оставить заявку
+              </Link>
             </Button>
           </div>
         </FadeInSection>

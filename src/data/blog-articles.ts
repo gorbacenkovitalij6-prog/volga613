@@ -90,17 +90,6 @@ export const BLOG_ARTICLES: BlogArticle[] = [
     readTime: '14 мин',
   },
   {
-    id: 8,
-    slug: 'avto-iz-evropy-v-rassrochku',
-    title: 'Можно ли купить авто из Европы в рассрочку? Да, и вот как',
-    excerpt:
-      'Разбираем варианты финансирования автопригона: наша рассрочка, условия, реальные кейсы. Без банковской волокиты.',
-    image: '/uploads/installment-financing.jpg',
-    date: '2024-09-24',
-    category: 'Финансы',
-    readTime: '15 мин',
-  },
-  {
     id: 9,
     slug: 'skolko-stoit-avtomobil-iz-evropy-kalkulyator',
     title: 'Сколько реально стоит автомобиль из Европы: калькулятор расходов',

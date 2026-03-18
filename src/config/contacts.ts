@@ -58,8 +58,10 @@ export const CONTACTS = {
   // Мессенджеры
   whatsapp: 'https://wa.me/79016208927',
   whatsappNumber: '+7 (901) 620-89-27',
-  telegram: 'https://t.me/volgaavto_order',
-  telegramUsername: '@volgaavto_order',
+  telegram: 'https://t.me/Volgaprigon',
+  telegramUsername: '@Volgaprigon',
+  max: 'https://max.ru/u/f9LHodD0cOJ6gz27zc5q7-2nE5_6HE3LR-PsZIMTKSxreQI30zXFNvvDfR8',
+  maxDisplayName: 'Связаться в MAX',
 
   // Социальные сети (при необходимости добавьте)
   social: {

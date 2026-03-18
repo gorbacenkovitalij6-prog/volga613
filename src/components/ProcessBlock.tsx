@@ -129,8 +129,8 @@ export function ProcessBlock() {
                 <div className="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-card to-transparent z-10 hidden sm:block" />
                 <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-card to-transparent z-10 sm:hidden block" />
                 <img 
-                  src="https://images.unsplash.com/photo-1583121274602-3e2820c69888?auto=format&fit=crop&q=80&w=800" 
-                  alt="Суперкар" 
+                  src="/woman-keys.png" 
+                  alt="Девушка с ключами от новой машины" 
                   className="absolute inset-0 w-full h-full object-cover object-left"
                   loading="lazy"
                 />

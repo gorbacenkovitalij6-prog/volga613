@@ -47,6 +47,12 @@ export function ConsultationBlock() {
     setErrorMessage('');
 
     try {
+      console.log('Sending consultation form...', {
+        name: formData.name,
+        phone: formData.phone,
+        message: `Бюджет: ${formData.budget || 'Не указан'}`,
+        source: 'Блок консультации',
+      });
       const response = await fetch('/api/send-to-telegram', {
         method: 'POST',
         headers: {
@@ -60,7 +66,9 @@ export function ConsultationBlock() {
         }),
       });
 
+      console.log('Consultation Response Status:', response.status);
       const result = await response.json();
+      console.log('Consultation Response Result:', result);
 
       if (response.ok && result.success) {
         setSubmitStatus('success');
@@ -78,7 +86,7 @@ export function ConsultationBlock() {
         setErrorMessage(result.error || 'Ошибка при отправке заявки');
       }
     } catch (error) {
-      console.error('Ошибка отправки формы:', error);
+      console.error('Ошибка отправки формы консультации (Network):', error);
       setSubmitStatus('error');
       setErrorMessage('Сетевая ошибка, попробуйте позже');
     } finally {

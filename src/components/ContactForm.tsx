@@ -55,6 +55,14 @@ export default function ContactForm({
     setErrorMessage('');
 
     try {
+      console.log('Sending to telegram...', {
+        name: formData.name,
+        phone: formData.phone,
+        email: formData.email,
+        message: formData.message,
+        carInterest: formData.carLink || formData.city,
+        source: `Форма на сайте: ${title || t('contactForm.title')}`,
+      });
       // Отправка данных на API
       const response = await fetch('/api/send-to-telegram', {
         method: 'POST',
@@ -71,7 +79,9 @@ export default function ContactForm({
         }),
       });
 
+      console.log('API Response Status:', response.status);
       const result = await response.json();
+      console.log('API Response Result:', result);
 
       if (response.ok && result.success) {
         setSubmitStatus('success');
@@ -93,7 +103,7 @@ export default function ContactForm({
         setErrorMessage(result.error || t('contactForm.errorSend'));
       }
     } catch (error) {
-      console.error('Ошибка отправки формы:', error);
+      console.error('Ошибка отправки формы (Network):', error);
       setSubmitStatus('error');
       setErrorMessage(t('contactForm.errorNetwork'));
     } finally {

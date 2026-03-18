@@ -66,6 +66,13 @@ export default function ChatWidget() {
       action: () => window.location.href = CONTACTS.emailHref,
       color: 'bg-zinc-600 hover:bg-zinc-700',
     },
+    {
+      icon: MessageCircle, // Используем общую иконку чата для MAX
+      title: 'MAX',
+      description: CONTACTS.maxDisplayName,
+      action: () => window.open(CONTACTS.max, '_blank'),
+      color: 'bg-purple-500 hover:bg-purple-600',
+    },
   ];
 
   return (
