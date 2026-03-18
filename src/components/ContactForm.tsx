@@ -179,7 +179,7 @@ export default function ContactForm({
             <Label htmlFor="carLink" className="text-sm font-medium">{t('contactForm.carLink')}</Label>
             <Input
               id="carLink"
-              type="url"
+              type="text"
               placeholder={t('contactForm.carLinkPlaceholder')}
               value={formData.carLink}
               onChange={(e) => setFormData({ ...formData, carLink: e.target.value })}
