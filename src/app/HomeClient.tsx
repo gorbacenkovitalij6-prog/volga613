@@ -144,7 +144,7 @@ export default function HomeClient({ cars, reviews, photoReviews }: HomeClientPr
               initial={{ opacity: 0, x: 30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 1.2, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-              className="w-full lg:w-[45%] xl:w-[40%] flex justify-center lg:justify-end hidden md:flex shrink-0 mb-8 lg:mb-0 mt-4 lg:mt-0"
+              className="w-full lg:w-[45%] xl:w-[40%] flex justify-center lg:justify-end shrink-0 mb-8 lg:mb-0 mt-10 md:mt-4 lg:mt-0"
             >
               <HeroCostForm />
             </motion.div>
