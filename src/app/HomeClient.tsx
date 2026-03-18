@@ -250,10 +250,10 @@ export default function HomeClient({ cars, reviews, photoReviews }: HomeClientPr
                       </div>
                       <div className="flex gap-2 w-full mt-auto">
                         <Button variant="outline" className="flex-1 shadow-sm text-sm" asChild>
-                          <Link href={`/catalog/${car.slug}`}>Детали</Link>
+                          <Link href="/catalog">Детали</Link>
                         </Button>
                         <Button className="flex-1 shadow-sm text-sm bg-primary text-white" asChild>
-                          <a href={CONTACTS.telegram} target="_blank" rel="noopener noreferrer">Заказать</a>
+                          <a href={`${CONTACTS.telegram}?text=${encodeURIComponent(`Здравствуйте! Меня интересует автомобиль: ${car.make} ${car.model} (${car.year} г., ${car.mileage.toLocaleString('ru-RU')} км, ${car.price.toLocaleString('ru-RU')} ₽)`)}`} target="_blank" rel="noopener noreferrer">Заказать</a>
                         </Button>
                       </div>
                     </div>
@@ -303,10 +303,10 @@ export default function HomeClient({ cars, reviews, photoReviews }: HomeClientPr
                   </div>
                   <div className="flex gap-2 w-full mt-auto">
                     <Button variant="outline" className="flex-1" asChild>
-                      <Link href={`/catalog/${car.slug}`}>Детали</Link>
+                      <Link href="/catalog">Детали</Link>
                     </Button>
                     <Button className="flex-1 bg-primary text-white" asChild>
-                      <a href={CONTACTS.telegram} target="_blank" rel="noopener noreferrer">Заказать</a>
+                      <a href={`${CONTACTS.telegram}?text=${encodeURIComponent(`Здравствуйте! Меня интересует автомобиль: ${car.make} ${car.model} (${car.year} г., ${car.mileage.toLocaleString('ru-RU')} км, ${car.price.toLocaleString('ru-RU')} ₽)`)}`} target="_blank" rel="noopener noreferrer">Заказать</a>
                     </Button>
                   </div>
                 </div>

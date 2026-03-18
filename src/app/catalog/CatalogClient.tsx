@@ -30,6 +30,7 @@ import Breadcrumbs from '@/components/Breadcrumbs';
 import FadeInSection from '@/components/FadeInSection';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Filter, ChevronLeft, ChevronRight } from 'lucide-react';
+import { CONTACTS } from '@/config/contacts';
 
 const CARS_PER_PAGE = 9;
 
@@ -433,10 +434,10 @@ export default function CatalogClient({ cars, dbBrands = [], dbModels = [] }: Ca
                               </div>
                             </div>
 
-                            <Button className="w-full" asChild>
-                              <Link href="/contacts#form">
-                                Оставить заявку
-                              </Link>
+                            <Button className="w-full bg-primary text-white" asChild>
+                              <a href={`${CONTACTS.telegram}?text=${encodeURIComponent(`Здравствуйте! Меня интересует автомобиль: ${car.make} ${car.model} (${car.year} г., ${car.mileage.toLocaleString('ru-RU')} км, ${car.price.toLocaleString('ru-RU')} ₽)`)}`} target="_blank" rel="noopener noreferrer">
+                                Заказать
+                              </a>
                             </Button>
                           </div>
                         </Card>
