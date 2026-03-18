@@ -59,3 +59,4 @@ To help make Turbopack better, report this error by clicking here: https://githu
  ✓ Compiled middleware in 1070ms
  ✓ Compiled middleware in 23ms
  ✓ Compiled middleware in 1ms
+ ✓ Compiled middleware in 1ms

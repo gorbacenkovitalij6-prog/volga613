@@ -75,28 +75,30 @@ export function ReviewsCarousel({ photoReviews = [], reviews = [], titleOverride
   }));
 
   return (
-    <section className="py-10 md:py-16 bg-[#0A0A0E] text-white overflow-hidden relative border-y border-white/[0.05]">
+    <section className="py-10 md:py-16 bg-white text-black overflow-hidden relative border-y border-zinc-100">
       {/* Декоративная сетка на фоне */}
       <div 
         className="absolute inset-0 opacity-[0.03] pointer-events-none" 
         style={{
-          backgroundImage: 'linear-gradient(#ffffff 1px, transparent 1px), linear-gradient(90deg, #ffffff 1px, transparent 1px)',
+          backgroundImage: 'linear-gradient(#000000 1px, transparent 1px), linear-gradient(90deg, #000000 1px, transparent 1px)',
           backgroundSize: '40px 40px'
         }}
       />
       
       <div className="container-custom px-4 relative z-10">
         <FadeInSection animation="fade-up" duration={600}>
-          <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 md:mb-10 gap-6">
-            <div>
-              <h2 className="text-2xl md:text-4xl lg:text-5xl font-black uppercase tracking-tight leading-tight mb-3">
-                {titleOverride || 'ОТЗЫВЫ КЛИЕНТОВ'}
-              </h2>
-              <p className="text-zinc-500 text-sm md:text-base">
-                Нам доверяют сотни автовладельцев по всей России
-              </p>
+          {titleOverride !== " " && (
+            <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 md:mb-10 gap-6">
+              <div>
+                <h2 className="text-2xl md:text-4xl lg:text-5xl font-black uppercase tracking-tight leading-tight mb-3">
+                  {titleOverride || 'ОТЗЫВЫ КЛИЕНТОВ'}
+                </h2>
+                <p className="text-zinc-500 text-sm md:text-base">
+                  Нам доверяют сотни автовладельцев по всей России
+                </p>
+              </div>
             </div>
-          </div>
+          )}
         </FadeInSection>
 
         <FadeInSection animation="fade-up" duration={700} delay={200}>
@@ -111,9 +113,9 @@ export function ReviewsCarousel({ photoReviews = [], reviews = [], titleOverride
               {combinedReviews.map((review, index) => (
                 <CarouselItem key={index} className="pl-2 md:pl-4 basis-full sm:basis-[48%] lg:basis-[32%] xl:basis-[31%]">
                   <div className="p-1 h-full">
-                    <Card className="h-full bg-[#15151A] border-zinc-800 text-white flex flex-col hover:border-zinc-700 hover:shadow-xl transition-all duration-300 overflow-hidden group rounded-xl">
+                    <Card className="h-full bg-white border-zinc-200 text-black flex flex-col hover:border-zinc-300 hover:shadow-xl transition-all duration-300 overflow-hidden group rounded-xl">
                       {/* Верхняя часть - Фото */}
-                      <div className="relative w-full aspect-[4/3] bg-zinc-800/50 overflow-hidden shrink-0">
+                      <div className="relative w-full aspect-[4/3] bg-zinc-100 overflow-hidden shrink-0">
                         <img
                           src={review.image}
                           alt={`Отзыв клиента ${review.name}`}
@@ -124,7 +126,7 @@ export function ReviewsCarousel({ photoReviews = [], reviews = [], titleOverride
                           }}
                         />
                         {/* Затемнение снизу для плавного перехода, по желанию */}
-                        <div className="absolute inset-0 bg-gradient-to-t from-[#15151A] via-transparent to-transparent opacity-80" />
+                        <div className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-transparent opacity-80" />
                       </div>
                       
                       {/* Нижняя часть - Текст */}
@@ -137,20 +139,20 @@ export function ReviewsCarousel({ photoReviews = [], reviews = [], titleOverride
                               className={`w-4 h-4 ${
                                 star <= (review.rating || 5)
                                   ? 'fill-yellow-400 text-yellow-400'
-                                  : 'fill-zinc-700 text-zinc-700'
+                                  : 'fill-zinc-200 text-zinc-200'
                               }`}
                             />
                           ))}
                         </div>
                         
                         {/* Текст отзыва */}
-                        <p className="text-sm text-zinc-300 mb-6 flex-1 leading-relaxed italic">
+                        <p className="text-sm text-zinc-600 mb-6 flex-1 leading-relaxed italic">
                           "{review.text}"
                         </p>
                         
                         {/* Информация о клиенте */}
-                        <div className="pt-4 border-t border-zinc-800 mt-auto">
-                          <div className="font-bold text-white mb-1">
+                        <div className="pt-4 border-t border-zinc-100 mt-auto">
+                          <div className="font-bold text-black mb-1">
                             {review.name}
                           </div>
                           {(review.city || review.car) && (
@@ -168,12 +170,12 @@ export function ReviewsCarousel({ photoReviews = [], reviews = [], titleOverride
             
             {/* Навигация */}
             <div className="absolute -top-16 right-4 hidden md:flex items-center gap-3">
-              <CarouselPrevious className="relative inset-0 translate-y-0 h-12 w-12 rounded-full border border-zinc-800 bg-[#111115] hover:bg-zinc-800 hover:text-white text-zinc-400 transition-colors disabled:opacity-50" />
-              <CarouselNext className="relative inset-0 translate-y-0 h-12 w-12 rounded-full border border-zinc-800 bg-[#111115] hover:bg-zinc-800 hover:text-white text-zinc-400 transition-colors disabled:opacity-50" />
+              <CarouselPrevious className="relative inset-0 translate-y-0 h-12 w-12 rounded-full border border-zinc-200 bg-white hover:bg-zinc-100 hover:text-black text-zinc-600 transition-colors disabled:opacity-50 shadow-sm" />
+              <CarouselNext className="relative inset-0 translate-y-0 h-12 w-12 rounded-full border border-zinc-200 bg-white hover:bg-zinc-100 hover:text-black text-zinc-600 transition-colors disabled:opacity-50 shadow-sm" />
             </div>
             <div className="flex md:hidden justify-center items-center gap-4 mt-6">
-              <CarouselPrevious className="relative inset-0 translate-y-0 h-12 w-12 rounded-full border border-zinc-800 bg-[#111115] hover:bg-zinc-800 hover:text-white text-zinc-400 transition-colors disabled:opacity-50" />
-              <CarouselNext className="relative inset-0 translate-y-0 h-12 w-12 rounded-full border border-zinc-800 bg-[#111115] hover:bg-zinc-800 hover:text-white text-zinc-400 transition-colors disabled:opacity-50" />
+              <CarouselPrevious className="relative inset-0 translate-y-0 h-12 w-12 rounded-full border border-zinc-200 bg-white hover:bg-zinc-100 hover:text-black text-zinc-600 transition-colors disabled:opacity-50 shadow-sm" />
+              <CarouselNext className="relative inset-0 translate-y-0 h-12 w-12 rounded-full border border-zinc-200 bg-white hover:bg-zinc-100 hover:text-black text-zinc-600 transition-colors disabled:opacity-50 shadow-sm" />
             </div>
           </Carousel>
         </FadeInSection>

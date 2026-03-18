@@ -98,7 +98,7 @@ export default function ReviewsAdminClient({ initialReviews }: { initialReviews:
   return (
     <>
       <div className="flex items-center justify-between mt-8 mb-4">
-        <h2 className="text-xl font-semibold">Список текстовых отзывов</h2>
+        <h2 className="text-xl font-semibold">Список отзывов</h2>
         <Button onClick={openAddModal} className="gap-2">
           <Plus className="w-4 h-4" /> Добавить отзыв
         </Button>

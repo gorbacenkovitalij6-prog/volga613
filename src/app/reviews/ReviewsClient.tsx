@@ -27,22 +27,22 @@ export default function ReviewsClient({ reviews, dbBrands = [], dbModels = [], p
          </div>
       </section>
 
-      <section className="pt-4 pb-16 md:pb-24">
+      <section className="pt-4 pb-4">
         <div className="container-custom px-4 text-center">
           <FadeInSection animation="fade-up" duration={700}>
             <h1 className="text-3xl md:text-5xl font-black uppercase tracking-tight mb-4 text-white">
-              ОТЗЫВЫ КЛИЕНТОВ
+              ОТЗЫВЫ
             </h1>
-            <p className="text-zinc-400 max-w-2xl mx-auto mb-12 md:mb-20 text-sm md:text-base">
+            <p className="text-zinc-400 max-w-2xl mx-auto text-sm md:text-base">
               Мы гордимся доверием наших клиентов. Узнайте, что говорят о работе с ЛТС.
             </p>
           </FadeInSection>
         </div>
       </section>
 
-      {/* ТЕКСТОВЫЕ ОТЗЫВЫ КЛИЕНТОВ (Карусель) */}
+      {/* ОТЗЫВЫ (Карусель) */}
       <div className="pb-20 relative">
-        <ReviewsCarousel photoReviews={photoReviews} reviews={reviews} titleOverride="ТЕКСТОВЫЕ ОТЗЫВЫ КЛИЕНТОВ" />
+        <ReviewsCarousel photoReviews={photoReviews} reviews={reviews} titleOverride=" " />
       </div>
 
     </div>
