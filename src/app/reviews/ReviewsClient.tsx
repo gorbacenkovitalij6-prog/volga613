@@ -18,7 +18,7 @@ export default function ReviewsClient({ reviews, dbBrands = [], dbModels = [], p
   const { t } = useLanguage();
 
   return (
-    <div className="flex flex-col bg-[#0A0A0E] text-white min-h-[90vh]">
+    <div className="flex flex-col bg-white text-black min-h-[90vh]">
       <ReviewsSchema reviews={reviews} />
 
       <section className="pt-8 pb-4">
@@ -30,10 +30,10 @@ export default function ReviewsClient({ reviews, dbBrands = [], dbModels = [], p
       <section className="pt-4 pb-4">
         <div className="container-custom px-4 text-center">
           <FadeInSection animation="fade-up" duration={700}>
-            <h1 className="text-3xl md:text-5xl font-black uppercase tracking-tight mb-4 text-white">
+            <h1 className="text-3xl md:text-5xl font-black uppercase tracking-tight mb-4 text-black">
               ОТЗЫВЫ
             </h1>
-            <p className="text-zinc-400 max-w-2xl mx-auto text-sm md:text-base">
+            <p className="text-zinc-600 max-w-2xl mx-auto text-sm md:text-base">
               Мы гордимся доверием наших клиентов. Узнайте, что говорят о работе с ЛТС.
             </p>
           </FadeInSection>

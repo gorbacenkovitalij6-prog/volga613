@@ -125,8 +125,6 @@ export function ReviewsCarousel({ photoReviews = [], reviews = [], titleOverride
                             (e.target as HTMLImageElement).style.display = 'none';
                           }}
                         />
-                        {/* Затемнение снизу для плавного перехода, по желанию */}
-                        <div className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-transparent opacity-80" />
                       </div>
                       
                       {/* Нижняя часть - Текст */}
