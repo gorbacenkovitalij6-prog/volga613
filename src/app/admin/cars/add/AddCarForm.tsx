@@ -30,7 +30,7 @@ export default function AddCarForm({ brands }: { brands: any[] }) {
                 const filePath = `cars/${fileName}`;
 
                 const { error: uploadError } = await supabase.storage
-                    .from('zvuk cars')
+                    .from('zvuk-cars')
                     .upload(filePath, file);
 
                 if (uploadError) {
@@ -38,7 +38,7 @@ export default function AddCarForm({ brands }: { brands: any[] }) {
                     throw new Error('Ошибка при загрузке фото: ' + uploadError.message);
                 }
 
-                const { data: { publicUrl } } = supabase.storage.from('zvuk%20cars').getPublicUrl(filePath);
+                const { data: { publicUrl } } = supabase.storage.from('zvuk-cars').getPublicUrl(filePath);
                 imageUrl = publicUrl;
             }
 
