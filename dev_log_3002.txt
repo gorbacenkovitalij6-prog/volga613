@@ -55,3 +55,5 @@ To help make Turbopack better, report this error by clicking here: https://githu
 
  ✓ Compiled in 16.6s
    Reload env: .env.local
+ ○ Compiling middleware ...
+ ✓ Compiled middleware in 1070ms
