@@ -68,10 +68,13 @@ export function ReviewsCarousel({ photoReviews = [], reviews = [], titleOverride
   // База для картинок
   const imageBase = photoReviews.length > 0 ? photoReviews : fallbackImages;
 
-  // Комбинируем текст и фото. Если текстов больше, чем фоток - зацикливаем фотки.
+  // Комбинируем текст и фото. Приоритет отдаем фото из БД отзыва.
+  // Если его нет, берем фото из пула локальных фотографий (зацикливая их).
   const combinedReviews = textBase.map((review, index) => ({
     ...review,
-    image: imageBase[index % imageBase.length]
+    image: (typeof review.imageUrl === 'string' && review.imageUrl.trim() !== '')
+      ? review.imageUrl
+      : imageBase[index % imageBase.length]
   }));
 
   return (
