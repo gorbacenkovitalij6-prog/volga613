@@ -10,6 +10,7 @@ import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { ReviewsCarousel } from '@/components/ReviewsCarousel';
+import { CONTACTS } from '@/config/contacts';
 import {
   CheckCircle2,
   Shield,
@@ -57,6 +58,15 @@ export default function HomeClient({ cars, reviews, photoReviews }: HomeClientPr
   useEffect(() => {
     setMounted(true);
   }, []);
+
+  const getDriveTypeLabel = (driveType: string): string => {
+    const driveTypeMap: { [key: string]: string } = {
+      'fwd': 'Передний',
+      'rwd': 'Задний',
+      'awd': 'Полный',
+    };
+    return driveTypeMap[driveType] || driveType;
+  };
 
   // Refs для каруселей
   const servicesScrollRef = useRef<HTMLDivElement>(null);
@@ -221,15 +231,31 @@ export default function HomeClient({ cars, reviews, photoReviews }: HomeClientPr
                       <h3 className="text-lg font-bold mb-2 leading-tight">
                         {car.make} {car.model}
                       </h3>
-                      <div className="flex gap-2.5 text-sm text-muted-foreground mb-3">
-                        <span>{car.year}</span>
-                        <span>•</span>
-                        <span>{car.mileage.toLocaleString('ru-RU')} км</span>
-                      </div>
                       <div className="text-xl font-bold text-primary mb-4">
                         {car.price.toLocaleString('ru-RU')} ₽
                       </div>
-                      <Button className="w-full shadow-sm" size="default">{t('catalog.requestButton')}</Button>
+                      <div className="space-y-1.5 mb-5">
+                        <div className="flex items-center gap-2 text-xs text-muted-foreground/80">
+                          <span className="w-1.5 h-1.5 rounded-full bg-muted-foreground/50"></span>
+                          <span>{car.year} год • {car.mileage.toLocaleString('ru-RU')} км</span>
+                        </div>
+                        <div className="flex items-center gap-2 text-xs text-muted-foreground/80">
+                          <span className="w-1.5 h-1.5 rounded-full bg-muted-foreground/50"></span>
+                          <span>{car.fuel} • {car.transmission}</span>
+                        </div>
+                        <div className="flex items-center gap-2 text-xs text-muted-foreground/80">
+                          <span className="w-1.5 h-1.5 rounded-full bg-muted-foreground/50"></span>
+                          <span>{getDriveTypeLabel(car.body)} привод</span>
+                        </div>
+                      </div>
+                      <div className="flex gap-2 w-full mt-auto">
+                        <Button variant="outline" className="flex-1 shadow-sm text-sm" asChild>
+                          <Link href={`/catalog/${car.slug}`}>Детали</Link>
+                        </Button>
+                        <Button className="flex-1 shadow-sm text-sm bg-primary text-white" asChild>
+                          <a href={CONTACTS.telegram} target="_blank" rel="noopener noreferrer">Заказать</a>
+                        </Button>
+                      </div>
                     </div>
                   </Card>
                 ))}
@@ -258,15 +284,31 @@ export default function HomeClient({ cars, reviews, photoReviews }: HomeClientPr
                   <h3 className="text-2xl font-bold mb-2">
                     {car.make} {car.model}
                   </h3>
-                  <div className="flex gap-4 text-sm text-muted-foreground mb-4">
-                    <span>{car.year}</span>
-                    <span>•</span>
-                    <span>{car.mileage.toLocaleString('ru-RU')} км</span>
-                  </div>
-                  <div className="text-2xl font-bold text-primary mb-4">
+                  <div className="text-2xl font-bold text-primary mb-4 mt-2">
                     {car.price.toLocaleString('ru-RU')} ₽
                   </div>
-                  <Button className="w-full">{t('catalog.requestButton')}</Button>
+                  <div className="space-y-2 mb-5">
+                    <div className="flex items-center gap-2 text-sm text-muted-foreground/80">
+                      <span className="w-2 h-2 rounded-full bg-muted-foreground/50"></span>
+                      <span>{car.year} год • {car.mileage.toLocaleString('ru-RU')} км</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-sm text-muted-foreground/80">
+                      <span className="w-2 h-2 rounded-full bg-muted-foreground/50"></span>
+                      <span>{car.fuel} • {car.transmission}</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-sm text-muted-foreground/80">
+                      <span className="w-2 h-2 rounded-full bg-muted-foreground/50"></span>
+                      <span>{getDriveTypeLabel(car.body)} привод</span>
+                    </div>
+                  </div>
+                  <div className="flex gap-2 w-full mt-auto">
+                    <Button variant="outline" className="flex-1" asChild>
+                      <Link href={`/catalog/${car.slug}`}>Детали</Link>
+                    </Button>
+                    <Button className="flex-1 bg-primary text-white" asChild>
+                      <a href={CONTACTS.telegram} target="_blank" rel="noopener noreferrer">Заказать</a>
+                    </Button>
+                  </div>
                 </div>
               </Card>
             ))}
