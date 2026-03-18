@@ -2,33 +2,28 @@
 
 import { createClient } from '@/utils/supabase/server';
 import { revalidatePath } from 'next/cache';
-import fs from 'fs';
-import path from 'path';
 
 export async function uploadReviewPhoto(formData: FormData) {
+    const supabase = await createClient();
     const file = formData.get('file') as File;
     if (!file) throw new Error('Файл не найден');
 
-    // Create unique filename
-    const bytes = await file.arrayBuffer();
-    const buffer = Buffer.from(bytes);
+    const extension = file.name.split('.').pop() || 'jpg';
+    const filename = `${Date.now()}-${Math.round(Math.random() * 1E9)}.${extension}`;
     
-    const uniqueSuffix = `${Date.now()}-${Math.round(Math.random() * 1E9)}`;
-    const extension = path.extname(file.name) || '.jpg';
-    const filename = `${uniqueSuffix}${extension}`;
-    
-    // Create uploads directory if it doesn't exist
-    const uploadDir = path.join(process.cwd(), 'public', 'uploads', 'reviews');
-    if (!fs.existsSync(uploadDir)) {
-        fs.mkdirSync(uploadDir, { recursive: true });
+    const { data, error } = await supabase.storage
+        .from('reviews_photos')
+        .upload(filename, file, { upsert: true });
+
+    if (error) {
+        throw new Error('Ошибка при загрузке картинки в базу: ' + error.message);
     }
-    
-    // Save file
-    const filepath = path.join(uploadDir, filename);
-    await fs.promises.writeFile(filepath, buffer);
-    
-    // Return the public URL path
-    return `/uploads/reviews/${filename}`;
+
+    const { data: publicUrlData } = supabase.storage
+        .from('reviews_photos')
+        .getPublicUrl(filename);
+
+    return publicUrlData.publicUrl;
 }
 
 export async function toggleReviewStatus(id: number | string, isPublished: boolean) {
