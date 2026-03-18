@@ -227,7 +227,7 @@ export default function HomeClient({ cars, reviews, photoReviews }: HomeClientPr
                         <span>{car.mileage.toLocaleString('ru-RU')} км</span>
                       </div>
                       <div className="text-xl font-bold text-primary mb-4">
-                        {t('catalog.from')} {car.price.toLocaleString('ru-RU')} ₽
+                        {car.price.toLocaleString('ru-RU')} ₽
                       </div>
                       <Button className="w-full shadow-sm" size="default">{t('catalog.requestButton')}</Button>
                     </div>
@@ -264,7 +264,7 @@ export default function HomeClient({ cars, reviews, photoReviews }: HomeClientPr
                     <span>{car.mileage.toLocaleString('ru-RU')} км</span>
                   </div>
                   <div className="text-2xl font-bold text-primary mb-4">
-                    {t('catalog.from')} {car.price.toLocaleString('ru-RU')} ₽
+                    {car.price.toLocaleString('ru-RU')} ₽
                   </div>
                   <Button className="w-full">{t('catalog.requestButton')}</Button>
                 </div>

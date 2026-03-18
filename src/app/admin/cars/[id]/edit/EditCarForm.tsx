@@ -167,19 +167,15 @@ export default function EditCarForm({ car, brands }: EditCarFormProps) {
                 </div>
 
                 <div className="space-y-2">
-                    <Label htmlFor="body_type">Тип кузова</Label>
-                    <Select name="body_type" defaultValue={car.body_type || 'sedan'}>
+                    <Label htmlFor="body_type">Тип привода</Label>
+                    <Select name="body_type" defaultValue={car.body_type || 'fwd'}>
                         <SelectTrigger>
-                            <SelectValue placeholder="Кузов" />
+                            <SelectValue placeholder="Привод" />
                         </SelectTrigger>
                         <SelectContent>
-                            <SelectItem value="sedan">Седан</SelectItem>
-                            <SelectItem value="suv">Внедорожник</SelectItem>
-                            <SelectItem value="crossover">Кроссовер</SelectItem>
-                            <SelectItem value="wagon">Универсал</SelectItem>
-                            <SelectItem value="hatchback">Хэтчбек</SelectItem>
-                            <SelectItem value="coupe">Купе</SelectItem>
-                            <SelectItem value="minivan">Минивэн</SelectItem>
+                            <SelectItem value="fwd">Передний привод</SelectItem>
+                            <SelectItem value="rwd">Задний привод</SelectItem>
+                            <SelectItem value="awd">Полный привод</SelectItem>
                         </SelectContent>
                     </Select>
                 </div>

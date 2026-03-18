@@ -51,26 +51,14 @@ export default function CatalogClient({ cars, dbBrands = [], dbModels = [] }: Ca
   const [isFilterOpen, setIsFilterOpen] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
 
-  // Функция перевода типа кузова
-  const getBodyTypeLabel = (bodyType: string): string => {
-    const bodyTypeMap: { [key: string]: string } = {
-      'sedan': t('catalogPage.sedan'),
-      'suv': t('catalogPage.suv'),
-      'wagon': t('catalogPage.wagon'),
-      'hatchback': t('catalogPage.hatchback'),
-      'coupe': t('catalogPage.coupe'),
-      'minivan': t('catalogPage.minivan'),
-      'crossover': t('catalogPage.crossover'),
-      // Поддержка старых русских значений
-      'Седан': t('catalogPage.sedan'),
-      'Внедорожник': t('catalogPage.suv'),
-      'Универсал': t('catalogPage.wagon'),
-      'Хэтчбек': t('catalogPage.hatchback'),
-      'Купе': t('catalogPage.coupe'),
-      'Минивэн': t('catalogPage.minivan'),
-      'Кроссовер': t('catalogPage.crossover'),
+  // Функция перевода типа привода
+  const getDriveTypeLabel = (driveType: string): string => {
+    const driveTypeMap: { [key: string]: string } = {
+      'fwd': 'Передний',
+      'rwd': 'Задний',
+      'awd': 'Полный',
     };
-    return bodyTypeMap[bodyType] || bodyType;
+    return driveTypeMap[driveType] || driveType;
   };
 
 
@@ -427,7 +415,7 @@ export default function CatalogClient({ cars, dbBrands = [], dbModels = [] }: Ca
                             </h3>
 
                             <div className="text-2xl font-bold text-primary mb-4">
-                              от {car.price.toLocaleString()} ₽
+                              {car.price.toLocaleString()} ₽
                             </div>
 
                             <div className="space-y-2 mb-5">
@@ -441,7 +429,7 @@ export default function CatalogClient({ cars, dbBrands = [], dbModels = [] }: Ca
                               </div>
                               <div className="flex items-center gap-2 text-sm text-muted-foreground/80">
                                 <span className="w-2 h-2 rounded-full bg-muted-foreground/50"></span>
-                                <span>{getBodyTypeLabel(car.body)}</span>
+                                <span>{getDriveTypeLabel(car.body)}</span>
                               </div>
                             </div>
 

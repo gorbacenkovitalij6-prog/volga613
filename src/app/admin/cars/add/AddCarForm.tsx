@@ -156,17 +156,15 @@ export default function AddCarForm({ brands }: { brands: any[] }) {
                 </div>
 
                 <div className="space-y-2">
-                    <Label htmlFor="body_type">Тип кузова</Label>
-                    <Select name="body_type" defaultValue="sedan">
+                    <Label htmlFor="body_type">Привод</Label>
+                    <Select name="body_type" defaultValue="fwd">
                         <SelectTrigger>
-                            <SelectValue />
+                            <SelectValue placeholder="Выберите привод" />
                         </SelectTrigger>
                         <SelectContent>
-                            <SelectItem value="sedan">Седан</SelectItem>
-                            <SelectItem value="suv">Внедорожник 5 дв.</SelectItem>
-                            <SelectItem value="hatchback">Хэтчбек</SelectItem>
-                            <SelectItem value="wagon">Универсал</SelectItem>
-                            <SelectItem value="coupe">Купе</SelectItem>
+                            <SelectItem value="fwd">Передний</SelectItem>
+                            <SelectItem value="rwd">Задний</SelectItem>
+                            <SelectItem value="awd">Полный</SelectItem>
                         </SelectContent>
                     </Select>
                 </div>
