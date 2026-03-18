@@ -63,8 +63,8 @@ export async function POST(request: Request) {
     // Разбиваем на строки, первая не пустая строка - Марка Модель
     const lines = text.split('\n').map((l: string) => l.trim()).filter(Boolean);
     const titleLine = lines[0] || 'Unknown Car';
-    let brand = titleLine.split(' ')[0] || 'Unknown';
-    let model = titleLine.split(' ').slice(1).join(' ') || '';
+    const brand = titleLine.split(' ')[0] || 'Unknown';
+    const model = titleLine.split(' ').slice(1).join(' ') || '';
 
     // Регулярные выражения под шаблон
     const yearMatch = text.match(/Год выпуска:\s*(\d+)/i);
@@ -83,19 +83,19 @@ export async function POST(request: Request) {
     const engine = engineMatch ? engineMatch[1].trim() : '';
 
     // Приведение коробки передач к стандарту БД (автомат, механика, робот)
-    let transmissionLabel = transmissionMatch ? transmissionMatch[1].trim().toLowerCase() : 'автомат';
+    const transmissionLabel = transmissionMatch ? transmissionMatch[1].trim().toLowerCase() : 'автомат';
     let transmission = 'автомат';
     if (transmissionLabel.includes('механ')) transmission = 'механика';
     if (transmissionLabel.includes('робот')) transmission = 'робот';
     if (transmissionLabel.includes('вариат')) transmission = 'вариатор';
 
     // Приведение привода к стандарту БД (fwd, rwd, awd)
-    let driveLabel = driveMatch ? driveMatch[1].trim().toLowerCase() : 'fwd';
+    const driveLabel = driveMatch ? driveMatch[1].trim().toLowerCase() : 'fwd';
     let body_type = 'fwd'; // мы используем body_type для привода в нашей системе
     if (driveLabel.includes('задн')) body_type = 'rwd';
     if (driveLabel.includes('полн')) body_type = 'awd';
 
-    let fuel_type = fuelMatch ? fuelMatch[1].trim().toLowerCase() : 'бензин';
+    const fuel_type = fuelMatch ? fuelMatch[1].trim().toLowerCase() : 'бензин';
 
     // --- 2. СКАЧИВАНИЕ И ЗАГРУЗКА ФОТО ---
     let finalImageUrl = '';
