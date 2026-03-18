@@ -58,9 +58,10 @@ const defaultReviews = [
 interface ReviewsCarouselProps {
   photoReviews?: string[];
   reviews?: any[];
+  titleOverride?: string;
 }
 
-export function ReviewsCarousel({ photoReviews = [], reviews = [] }: ReviewsCarouselProps) {
+export function ReviewsCarousel({ photoReviews = [], reviews = [], titleOverride }: ReviewsCarouselProps) {
   // База для текстов
   const textBase = reviews.length > 0 ? reviews : defaultReviews;
   
@@ -89,7 +90,7 @@ export function ReviewsCarousel({ photoReviews = [], reviews = [] }: ReviewsCaro
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 md:mb-10 gap-6">
             <div>
               <h2 className="text-2xl md:text-4xl lg:text-5xl font-black uppercase tracking-tight leading-tight mb-3">
-                ОТЗЫВЫ КЛИЕНТОВ
+                {titleOverride || 'ОТЗЫВЫ КЛИЕНТОВ'}
               </h2>
               <p className="text-zinc-500 text-sm md:text-base">
                 Нам доверяют сотни автовладельцев по всей России

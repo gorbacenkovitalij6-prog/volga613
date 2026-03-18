@@ -42,6 +42,14 @@ export default async function AdminDashboardPage() {
                         <Link href="/admin/reviews">Перейти к отзывам</Link>
                     </Button>
                 </div>
+
+                <div className="p-6 bg-card text-card-foreground rounded-lg border shadow-sm space-y-4">
+                    <h2 className="text-xl font-semibold">Видеоотзывы</h2>
+                    <p className="text-muted-foreground">Добавление и удаление видеоотзывов клиентов.</p>
+                    <Button asChild className="w-full" variant="secondary">
+                        <Link href="/admin/video-reviews">Перейти к видеоотзывам</Link>
+                    </Button>
+                </div>
             </div>
         </div>
     )
