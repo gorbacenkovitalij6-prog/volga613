@@ -168,8 +168,8 @@ export default function HomeClient({ cars, reviews, photoReviews }: HomeClientPr
             ].map((stat, idx) => (
               <div key={idx} className="flex flex-col sm:flex-row items-center justify-center gap-4 bg-white/[0.04] backdrop-blur-md border border-t-white/30 border-x-0 border-b-0 shadow-[inset_0_1px_1px_rgba(255,255,255,0.2)] rounded-xl md:rounded-[14px] p-5 lg:p-[22px] transition-colors hover:bg-white/[0.08]">
                 <stat.icon className="w-6 h-6 md:w-8 md:h-8 text-white/90" strokeWidth={1.5} />
-                <div className="flex flex-col justify-center">
-                  <div className="text-xl md:text-[24px] lg:text-[28px] font-bold text-white flex items-baseline leading-none mb-0.5">
+                <div className="flex flex-col justify-center items-center sm:items-start text-center sm:text-left">
+                  <div className="text-xl md:text-[24px] lg:text-[28px] font-bold text-white flex items-baseline justify-center sm:justify-start leading-none mb-0.5">
                     <AnimatedCounter end={stat.num} suffix={stat.suffix} duration={1500} />
                   </div>
                   <div className="text-[9px] md:text-[10px] lg:text-[11px] font-bold text-white/70 uppercase tracking-widest mt-1">
